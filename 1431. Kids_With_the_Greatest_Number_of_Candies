@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool> out;
+        int i = 0;
+        int j = candies.size() - 1;
+        int max = candies[0];
+        for(int i=0; i<candies.size(); i++){
+            if(candies[i] > max){
+                max = candies[i];
+            }
+        }
+        int sum = 0;
+        while(i<=j){
+            sum = candies[i] + extraCandies;
+            if(sum >= max){
+                out.push_back(true);
+                sum = 0;
+            }
+            else{
+                out.push_back(false);
+                sum = 0;
+            }
+            i++;
+        }
+        return out;
+    }
+};
