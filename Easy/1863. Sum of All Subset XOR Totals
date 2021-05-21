@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int subsetXORSum(vector<int>& nums) {
+        int total = 0;
+        for(auto i=0; i<(1 << nums.size()); i++){
+            int ans = 0;
+            for(auto j=0; j< nums.size(); j++){
+                if(i & (1<<j))
+                    ans ^= nums[j];
+            }
+            total += ans;
+        }
+        return total;
+    }
+};
